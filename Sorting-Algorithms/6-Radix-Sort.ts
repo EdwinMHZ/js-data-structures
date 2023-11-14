@@ -59,3 +59,21 @@ function mostDigits(nums: number[]): number {
 
     return max;
 }
+
+// Time Complexity O()
+function radixSort(nums: number[]) {
+    const maxDigits = mostDigits(nums);
+    for(let i = 0; i < maxDigits; i++) {
+        const buckets: Array<number[]> = Array.from({length: 10}, () => []);
+        nums.forEach(num => {
+            const digit = getDigit(num, i);
+            buckets[digit].push(num);
+        });
+        let newArr: number[] = [];
+        buckets.forEach(bucket => {
+            newArr = newArr.concat([...bucket]);
+        });
+        nums = [...newArr];
+    }
+    return nums;
+}

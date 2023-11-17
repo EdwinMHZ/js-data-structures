@@ -60,7 +60,10 @@ function mostDigits(nums: number[]): number {
     return max;
 }
 
-// Time Complexity O()
+// Time Complexity(Best) O(nk)
+// Time Complexity(Average) O(nk)
+// Time Complexity(Worst) O(nk)
+// Space Complexity(Best) O(n + k)
 function radixSort(nums: number[]) {
     const maxDigits = mostDigits(nums);
     for(let i = 0; i < maxDigits; i++) {

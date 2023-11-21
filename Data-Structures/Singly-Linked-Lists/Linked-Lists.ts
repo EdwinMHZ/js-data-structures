@@ -16,3 +16,35 @@
     - Can quickly be accessed at a specific index
 
 */
+
+class NodeSLL {
+    val: string;
+    next: NodeSLL | null;
+    constructor(val: string) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    length: number;
+    head: NodeSLL | null;
+    tail: NodeSLL | null;
+    constructor() {
+        this.length = 0;
+        this.head = null;
+        this.tail = null;
+    }
+    push(val: string) {
+        this.length++;
+        const newNode: NodeSLL = new NodeSLL(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail!.next = newNode;
+            this.tail = newNode;
+        }
+        return this;
+    }
+}

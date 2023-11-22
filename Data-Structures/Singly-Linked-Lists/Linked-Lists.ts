@@ -47,4 +47,23 @@ class SinglyLinkedList {
         }
         return this;
     }
+    pop() {
+        if(!this.head) {
+            return undefined;
+        }
+        let current: NodeSLL | null = this.head;
+        let prev: NodeSLL | null = current;
+        while(current.next != null) {
+            prev = current;
+            current = current.next;
+        }
+        prev!.next = null;
+        this.tail = prev;
+        this.length--;
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
 }

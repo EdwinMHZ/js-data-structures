@@ -78,4 +78,17 @@ class SinglyLinkedList {
         }
         return current;
     }
+    unshift(val: string) {
+        this.length++;
+        const newNode: NodeSLL = new NodeSLL(val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            const currentHead = this.head;
+            this.head = newNode;
+            this.head.next = currentHead;
+        }
+        return this;
+    }
 }

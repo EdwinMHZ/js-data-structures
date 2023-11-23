@@ -106,4 +106,11 @@ class SinglyLinkedList {
         }
         return undefined;
     }
+    setNode(index: number, val: string) {
+        const node = this.getNode(index);
+        if(node) {
+            node.val = val;
+        }
+        return node;
+    }
 }

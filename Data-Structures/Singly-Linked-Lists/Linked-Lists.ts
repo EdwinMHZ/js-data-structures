@@ -91,4 +91,19 @@ class SinglyLinkedList {
         }
         return this;
     }
+    getNode(index: number) {
+        if(index < 0 || index >= this.length) {
+            return undefined;
+        }
+        let current = this.head;
+        let count = 0;
+        while(current) {
+            if(count === index) {
+                return current;
+            }
+            count++;
+            current = current.next;
+        }
+        return undefined;
+    }
 }

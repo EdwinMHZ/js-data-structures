@@ -24,4 +24,14 @@ class DoublyLinkedList {
         this.head = null;
         this.tail = null;
     }
+    print() {
+        let currentNode = this.head;
+        while(currentNode) {
+            console.log("Prev:", currentNode.prev?.val);
+            console.log("Current:", currentNode.val);
+            console.log("Next:", currentNode.next?.val);
+            console.log("->")
+            currentNode = currentNode.next;
+        }
+    }
 }

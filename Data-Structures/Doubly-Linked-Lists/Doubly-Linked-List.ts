@@ -47,4 +47,22 @@ class DoublyLinkedList {
         }
         return this;
     }
+    pop() {
+        if(!this.head) {
+            return undefined;
+        }
+        let current = this.tail;
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            if(current?.prev) {
+                current.prev.next = null;
+            }
+            this.tail = current!.prev;
+            current!.prev = null;
+        }
+        this.length--;
+        return current;
+    }
 }

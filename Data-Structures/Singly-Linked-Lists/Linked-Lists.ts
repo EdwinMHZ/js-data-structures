@@ -26,6 +26,13 @@ class NodeSLL {
     }
 }
 
+/*
+    Time Complexity
+    Insertion O(n)
+    Removal - It depends O(1) at the beginning or O(n) at the end
+    Searching O(n)
+    Access O(n)
+*/
 class SinglyLinkedList {
     length: number;
     head: NodeSLL | null;

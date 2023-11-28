@@ -150,4 +150,24 @@ class DoublyLinkedList {
         }
         return this;
     }
+    remove(index: number) {
+        if(index < 0 || index >= this.length) {
+            return undefined;
+        }
+        if(index === 0) {
+            return this.shift();
+        }else if(index === this.length - 1) {
+            return this.pop();
+        } else {
+            const currentNode = this.getNode(index);
+            const prevNode = currentNode!.prev;
+            const nextNode = currentNode!.next;
+            prevNode!.next = nextNode;
+            nextNode!.prev = prevNode;
+            currentNode!.next = null;
+            currentNode!.prev = null;
+            this.length--;
+            return currentNode;
+        }
+    }
 }

@@ -95,6 +95,36 @@ class DoublyLinkedList {
         }
         return this;
     }
+    getNode(index: number) {
+        if(index < 0 || index >= this.length) {
+            return null;
+        }
+        let current;
+        let count;
+        let half = Math.floor(this.length / 2);
+        if(index <= half) {
+            current = this.head;
+            count = 0;
+            while(current) {
+                if(count === index) {
+                    return current;
+                }
+                count++;
+                current = current.next;
+            }
+        } else {
+            current = this.tail;
+            count = this.length - 1;
+            while(current) {
+                if(count === index) {
+                    return current;
+                }
+                count--;
+                current = current.prev;
+            }
+        }
+        return null;
+    }
     setNode(index: number, val: string) {
         const node = this.getNode(index);
         if(node) {

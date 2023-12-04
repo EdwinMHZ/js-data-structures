@@ -29,4 +29,31 @@ class BinarySearchTree {
     constructor() {
         this.root = null;
     }
+    insert(val: number) {
+        const newNode = new TreeNode(val);
+        if(!this.root) {
+            this.root = newNode;
+            return this;
+        } else {
+            let current = this.root;
+            while(true) {
+                    if(val === current.val) {
+                        return undefined;
+                    }
+                    if(val < current.val) {
+                        if(current.left === null) {
+                            current.left = newNode;
+                            return this;
+                        }
+                        current = current.left;
+                    } else if(val > current.val) {
+                        if(current.right === null) {
+                            current.right = newNode;
+                            return this;
+                        }
+                        current = current.right;
+                    }
+            }
+        }
+    }
 }

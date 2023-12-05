@@ -79,4 +79,25 @@ class BinarySearchTree {
         }
         return undefined;
     }
+    breadthFirstSearch() {
+        if(!this.root) {
+            return [];
+        }
+        const queue = [];
+        const visited = [];
+        let current = this.root;
+        queue.push(current);
+        while(queue.length > 0) {
+            current = queue.shift()!;
+            visited.push(current.val);
+            if(current.left) {
+                queue.push(current.left);
+            }
+            if(current.right) {
+                queue.push(current.right);
+            }
+        }
+
+        return visited;
+    }
 }

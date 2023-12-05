@@ -56,4 +56,21 @@ class BinarySearchTree {
             }
         }
     }
+    find(val: number) {
+        if(!this.root) {
+            return undefined;
+        }
+        let current: TreeNode | null = this.root;
+        while(current) {
+            if(val === current.val) {
+                return current;
+            }
+            if(val < current.val) {
+                current = current.left;
+            } else if(val > current.val) {
+                current = current.right;
+            }
+        }
+        return undefined;
+    }
 }

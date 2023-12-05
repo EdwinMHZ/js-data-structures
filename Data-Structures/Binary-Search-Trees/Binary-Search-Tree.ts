@@ -24,6 +24,12 @@ class TreeNode {
     }
 }
 
+/*
+    Time Complexity
+    Insertion - O(log(n))
+    Searching - O(log(n))
+    NOT guaranteed 
+*/
 class BinarySearchTree {
     root: TreeNode | null;
     constructor() {

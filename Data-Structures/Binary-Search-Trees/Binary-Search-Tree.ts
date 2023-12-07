@@ -136,4 +136,22 @@ class BinarySearchTree {
         this.traversePostOrder(current, visited);
         return visited;
     }
+    traverseInOrder(node: TreeNode, visited: number[]) {
+        if(node.left) {
+            this.traverseInOrder(node.left, visited);
+        }
+        visited.push(node.val);
+        if(node.right) {
+            this.traverseInOrder(node.right, visited);
+        }
+    }
+    bfsInOrder() {
+        if(!this.root) {
+            return [];
+        }
+        const visited: number[] = [];
+        const current = this.root;
+        this.traverseInOrder(current, visited);
+        return visited;
+    }
 }

@@ -100,4 +100,22 @@ class BinarySearchTree {
 
         return visited;
     }
+    transverse(node: TreeNode, visited: number[]) {
+        visited.push(node.val);
+        if(node.left) {
+            this.transverse(node.left, visited);
+        }
+        if(node.right) {
+            this.transverse(node.right, visited);
+        }
+    }
+    bfsPreOrder() {
+        if(!this.root) {
+            return [];
+        }
+        const visited: number[] = [];
+        const current = this.root;
+        this.transverse(current, visited);
+        return visited;
+    }
 }

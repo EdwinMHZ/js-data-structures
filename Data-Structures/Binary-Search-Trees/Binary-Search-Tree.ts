@@ -100,13 +100,13 @@ class BinarySearchTree {
 
         return visited;
     }
-    transverse(node: TreeNode, visited: number[]) {
+    traversePreOrder(node: TreeNode, visited: number[]) {
         visited.push(node.val);
         if(node.left) {
-            this.transverse(node.left, visited);
+            this.traversePreOrder(node.left, visited);
         }
         if(node.right) {
-            this.transverse(node.right, visited);
+            this.traversePreOrder(node.right, visited);
         }
     }
     bfsPreOrder() {
@@ -115,7 +115,7 @@ class BinarySearchTree {
         }
         const visited: number[] = [];
         const current = this.root;
-        this.transverse(current, visited);
+        this.traversePreOrder(current, visited);
         return visited;
     }
 }

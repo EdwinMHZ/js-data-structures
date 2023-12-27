@@ -16,6 +16,12 @@ class PQNode {
     }
   }
 
+  /*
+    Time Complexity
+    Insertion - O(log(n))
+    Removal - O(log(n))
+    Search - O(n)
+*/
 class PriorityQueue {
     values: PQNode[];
     constructor() {

@@ -12,6 +12,13 @@
     traversal algorithms
 */
 
+
+/*
+    Time Complexity
+    Insertion - O(log(n))
+    Removal - O(log(n))
+    Search - O(n)
+*/
 class MaxBinaryHeap {
     values: number[];
     constructor() {

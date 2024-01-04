@@ -53,4 +53,38 @@ class Graph {
         }
         this.adjacencyList.delete(vertex);
     }
+    depthFirstRecursive(vertex: string) {
+        const result: string[] = [];
+        const visited = new Map<string, boolean>();
+        const dfs = (v: string) => {
+            if(!v) {
+                return;
+            }
+            visited.set(v, true);
+            result.push(v);
+            this.adjacencyList.get(v)?.forEach(neighbour => {
+                if(!visited.has(neighbour)) {
+                    return dfs(neighbour);
+                }
+            })
+        }
+        dfs(vertex);
+        
+        return result;
+    }
+    depthFirstIterative(vertex: string) {
+        const result: string[] = [];
+        const visited = new Map<string, boolean>();
+        const stack = [];
+        stack.push(vertex);
+        while(stack.length > 0) {
+            const v = stack.pop();
+            if(!visited.has(v!)) {
+                visited.set(v!, true);
+                result.push(v!);
+                stack.push(...this.adjacencyList.get(v!)!)
+            }
+        }
+        return result;
+    }
 }

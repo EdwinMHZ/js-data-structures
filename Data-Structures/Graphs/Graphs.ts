@@ -87,4 +87,19 @@ class Graph {
         }
         return result;
     }
+    breadthFirst(vertex: string) {
+        const result: string[] = [];
+        const visited = new Map<string, boolean>();
+        const queue = [];
+        queue.push(vertex);
+        while(queue.length > 0) {
+            const v = queue.shift();
+            if(!visited.has(v!)) {
+                visited.set(v!, true);
+                result.push(v!);
+                queue.push(...this.adjacencyList.get(v!)!)
+            }
+        }
+        return result;
+    }
 }

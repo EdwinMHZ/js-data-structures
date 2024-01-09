@@ -26,7 +26,7 @@ function fibRecursive(n:number) {
 
 // Recursion + Memoization
 // Time complexity 0(n)
-function fib(n: number, memo: number[] = []) {
+function fibMemo(n: number, memo: number[] = []) {
     if(memo[n] !== undefined) {
         return memo[n];
     }
@@ -38,3 +38,16 @@ function fib(n: number, memo: number[] = []) {
     return res;
 }
 
+// Tabulated Approach
+// Time complexity 0(n)
+function fibTabulated(n:number) {
+    if (n <= 2) {
+        return 1;
+    }
+    const fibNums = [0, 1, 1];
+    for (let i = 3; i <= n; i++) {
+        fibNums[i] = fibNums[i-1] + fibNums[i -2];
+    }
+
+    return fibNums[n];
+}

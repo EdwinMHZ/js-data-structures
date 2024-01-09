@@ -13,3 +13,28 @@
     into subproblems which are reused several times.
     Example: Fibonnaci Sequence
 */
+
+// Recursion
+// Time complexity O(2^n)
+function fibRecursive(n:number) {
+    if(n <= 2) {
+        return 1;
+    }
+    return fib(n-1) + fib(n-2);
+}
+
+
+// Recursion + Memoization
+// Time complexity 0(n)
+function fib(n: number, memo: number[] = []) {
+    if(memo[n] !== undefined) {
+        return memo[n];
+    }
+    if(n <= 2) {
+        return 1;
+    }
+    const res: number = fib(n - 1, memo)! + fib(n- 2, memo)!;
+    memo[n] = res;
+    return res;
+}
+
